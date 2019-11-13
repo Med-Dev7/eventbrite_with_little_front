@@ -1,0 +1,59 @@
+<h1>Event#edit</h1>
+<p>Find me in app/views/event/edit.html.erb</p>
+<h1>Event#create</h1>
+<p>Find me in app/views/event/create.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 border border-info ">
+      <br><br><br>
+
+      <% if @event.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <p>Nous n'avons pas réussi à créer l'event pour la(les) raison(s) suivante(s) :</p>
+          <ul>
+              <% @event.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= form_for :event, url: {action: "create"} do |f| %>
+      <h1 class="h3 mb-3 font-weight-normal text-center">Creer un Event </h1>
+        <div class="form_group">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: "form-control"%>
+        </div>
+        <br>
+        <div class="form_group">
+          <%= f.label :description %>
+          <%= f.text_field :description, class: "form-control"%>
+        </div>
+        <br>
+        <div class="form_group">
+          <%= f.label "format yyyy/mm/dd" %><!-- trouver un moyen pour separer heure et jours-->
+          <%= f.text_field :start_date, class: "form-control"%>
+        </div>
+        <br>
+         <div class="form_group">
+          <%= f.label :duration %>
+          <%= f.text_field :duration, class: "form-control"%>
+        </div>
+        <br>
+        <div class="form_group">
+          <%= f.label :location %>
+          <%= f.text_field :location, class: "form-control"%>
+        </div>
+        <br>
+        <div class="form_group">
+          <%= f.label :price  %>
+          <%= f.text_field :price, class: "form-control"%>
+        </div>
+        <br>
+        <div class="actions mt-5">
+          <%= f.submit "Valider", class: "btn btn-lg btn-primary btn-block" %>
+        </div>
+        <br>
+      <% end %>
+   </div>
+  </div>
+</div>

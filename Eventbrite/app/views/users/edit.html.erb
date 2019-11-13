@@ -1,0 +1,27 @@
+<h1>Users#edit</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <br><br><br>
+      <%= form_for @user, url: {action: "update"} do |f| %>
+      <h1 class="h3 mb-3 font-weight-normal text-center">Edit profile</h1>
+        <div class="form_group">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, class: "form-control"%>
+        </div>
+        <div class="form_group">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, class: "form-control"%>
+        </div>
+        <div class="form_group">
+          <%= f.label :description %>
+          <%= f.text_field :description, class: "form-control"%>
+        </div>
+        <div class="actions mt-5">
+          <%= f.submit "Edit", class: "btn btn-lg btn-primary btn-block" %>
+        </div>
+      <% end %>
+   </div>
+  </div>
+</div>

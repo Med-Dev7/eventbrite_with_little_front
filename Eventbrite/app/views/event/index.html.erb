@@ -1,0 +1,41 @@
+<main role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Hello, world! Eventbrite.</h1>
+          <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        </div>
+      </div>
+        <div class="album py-5 bg-light">
+            <div class="container">
+            
+                <div class="card-columns">
+                    <%@events.each do |event|%>
+                        <div class="card border-info">
+                            <%= link_to  event_path(event.id) do %>
+                            <%= image_tag "https://thumbs.dreamstime.com/z/red-fox-sunrise-female-poses-gracefully-morning-sun-162386398.jpg", class: "card-img-top" %>
+                            <% end %>
+                            <div class="card-body">
+                                <h5 class="card-title"><%= event.title %></h5>
+                                <p class="card-text"><%= event.description %></p>
+                                <p class="card-text"><%= event.start_date %></p>
+                                
+                                <p class="card-text text-center">
+                                <!-- ajuster le last update pour avoir les minutes-->
+                                    <small class="text-muted">Last updated <%= event.updated_at %> mins ago</small>
+                                </p>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated <%= event.updated_at %>mins ago </small>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+
+                    <!-- /row -->
+                <hr>
+            </div> <!-- /container -->
+        </div><!-- /album py-5 bg-light -->
+    </main>

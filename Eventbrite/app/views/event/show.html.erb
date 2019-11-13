@@ -1,0 +1,26 @@
+
+<div class="container">
+    <div class="text-center">
+        <h1>Event#show</h1>
+        <p>Find me in app/views/event/show.html.erb</p>      
+        <% if current_user && current_user.id == @event.user_id%>
+            <%= link_to "mon espace événement", event_attendance_index_path(@event.id) , class: "btn btn-warning"%>
+        <% end %>
+        <div class="text-center border border-secondary rounded">
+        <h3><%= @event.title%></h3>
+        <p>Description : <%= @event.description%></p>
+        <!-- nombre d'user inscrit a l evenement-->
+        <p>Date de commencement : <%= @event.start_date%></p> <!-- Afficher au bon format jours mois annee avec l'horaire-->
+        <p>Duree : <%= @event.duration%></p>
+        <p>Lieu : <%= @event.location%></p>
+        <p>Prix :  <%= @event.price%></p>    
+    <% if current_user %>
+        <%= link_to "Rejoindre l'event",  new_event_attendance_path(@event.id), class: "btn btn-success"%>
+    <% else %>
+        <%= link_to "inscription", new_user_registration_path, :class => "btn btn-primary" %> 
+<% end %>
+    </div><!-- text-center-->
+</div><!-- container -->
+<%# <div class="text-center"> %>
+
+<%# </div> %>

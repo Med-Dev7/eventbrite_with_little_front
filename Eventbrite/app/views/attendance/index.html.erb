@@ -1,0 +1,10 @@
+<div class="container">
+   <div class="text-center border border-secondary rounded">
+        <%= link_to "Modifier l'event", edit_event_path(@event.id), class: "btn btn-primary"%>
+        <%= link_to "Delete l'event", "#", class: "btn btn-danger"%>
+        <h4>Les invitez sont : </h4>
+        <%@users.each do |user|%>
+            <p><%= user.first_name %> <%= user.last_name %></p>
+        <% end %>
+    </div>
+</div>
